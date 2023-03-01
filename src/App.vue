@@ -27,4 +27,8 @@ export default {
   <AppHeader />
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+body {
+  background-color: coral;
+}
+</style>
