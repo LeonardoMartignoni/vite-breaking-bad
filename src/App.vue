@@ -1,8 +1,13 @@
 <script>
+import AppHeader from "./components/AppHeader.vue";
 import { store } from "./assets/data/store";
 import axios from "axios";
 
 export default {
+  components: {
+    AppHeader,
+  },
+
   data() {
     return {
       store,
@@ -18,6 +23,8 @@ export default {
 };
 </script>
 
-<template></template>
+<template>
+  <AppHeader />
+</template>
 
-<style scoped></style>
+<style lang="scss" scoped></style>
