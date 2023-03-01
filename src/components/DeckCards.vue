@@ -13,8 +13,13 @@ export default {
         alt="YuGiOh Card"
         class="img-fluid"
       />
-      <span class="card_name text-uppercase fw-bold">{{ card.name }}</span>
-      <span class="card_archetype">{{ card.archetype }}</span>
+      <div class="card_text p-2">
+        <span
+          class="card_name text-uppercase fw-bold d-flex align-items-center justify-content-center"
+          >{{ card.name }}</span
+        >
+        <span class="card_archetype">{{ card.archetype }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -24,7 +29,7 @@ export default {
   .card_name {
     color: white;
     display: inline-block;
-    height: 3rem;
+    min-height: 3rem;
   }
   .card_archetype {
     display: block;
