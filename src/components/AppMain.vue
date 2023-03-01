@@ -16,7 +16,7 @@ export default {
 </script>
 <template>
   <div class="container">
-    <div class="deck_cards p-4">
+    <div class="deck_cards p-4 mt-4">
       <div class="row row-cols-5">
         <DeckCards
           v-for="card in store.decks"

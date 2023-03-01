@@ -1,6 +1,7 @@
 <script>
 import AppHeader from "./components/AppHeader.vue";
 import AppMain from "./components/AppMain.vue";
+import DeckLoading from "./components/DeckLoading.vue";
 import { store } from "./assets/data/store";
 import axios from "axios";
 
@@ -8,6 +9,7 @@ export default {
   components: {
     AppHeader,
     AppMain,
+    DeckLoading,
   },
 
   data() {
@@ -16,11 +18,27 @@ export default {
     };
   },
 
+  methods: {
+    fetchDecks(url) {
+      store.isPageLoading = true;
+      axios
+        .get(url)
+        .then((response) => {
+          store.decks = response.data.data;
+          console.log(store.decks);
+        })
+        .catch((error) => {
+          store.decks = [];
+          console.error(error);
+        })
+        .finally(() => {
+          store.isPageLoading = false;
+        });
+    },
+  },
+
   created() {
-    axios.get(store.endpoint).then((response) => {
-      store.decks = response.data.data;
-      console.log(store.decks);
-    });
+    this.fetchDecks(store.endpoint);
   },
 };
 </script>
@@ -28,7 +46,10 @@ export default {
 <template>
   <AppHeader />
   <main>
-    <AppMain class="mt-5" />
+    <div v-if="!store.isPageLoading">
+      <AppMain />
+    </div>
+    <DeckLoading v-else />
   </main>
 </template>
 
