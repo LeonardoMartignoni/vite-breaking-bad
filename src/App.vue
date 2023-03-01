@@ -32,7 +32,13 @@ export default {
           console.error(error);
         })
         .finally(() => {
-          store.isPageLoading = false;
+          // REMOVE THIS LINE IN BUILD (DEBUG)
+          setTimeout(() => {
+            store.isPageLoading = false;
+          }, 2000);
+
+          // ADD THIS LINE IN BUILD
+          // store.isPageLoading = false;
         });
     },
   },
