@@ -1,11 +1,13 @@
 <script>
 import AppHeader from "./components/AppHeader.vue";
+import AppMain from "./components/AppMain.vue";
 import { store } from "./assets/data/store";
 import axios from "axios";
 
 export default {
   components: {
     AppHeader,
+    AppMain,
   },
 
   data() {
@@ -16,7 +18,7 @@ export default {
 
   created() {
     axios.get(store.endpoint).then((response) => {
-      store.decks = response.data;
+      store.decks = response.data.data;
       console.log(store.decks);
     });
   },
@@ -25,6 +27,9 @@ export default {
 
 <template>
   <AppHeader />
+  <main>
+    <AppMain class="mt-5" />
+  </main>
 </template>
 
 <style lang="scss">
