@@ -1,7 +1,12 @@
 <script>
 import { store } from "../assets/data/store";
+import DeckCards from "./DeckCards.vue";
 
 export default {
+  components: {
+    DeckCards,
+  },
+
   data() {
     return {
       store,
@@ -13,19 +18,10 @@ export default {
   <div class="container">
     <div class="deck_cards p-4">
       <div class="row row-cols-5">
-        <div
-          class="col"
+        <DeckCards
           v-for="card in store.decks"
-          :key="card.id"
-        >
-          <div class="card_content p-2">
-            <img
-              :src="card.card_images[0].image_url"
-              alt="YuGiOh Card"
-              class="img-fluid"
-            />
-          </div>
-        </div>
+          :card="card"
+        />
       </div>
     </div>
   </div>
