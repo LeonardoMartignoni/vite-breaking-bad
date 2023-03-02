@@ -25,7 +25,7 @@ export default {
         .get(url)
         .then((response) => {
           store.decks = response.data.data;
-          console.log(store.decks);
+          // console.log(store.decks);
         })
         .catch((error) => {
           store.decks = [];
@@ -53,7 +53,13 @@ export default {
   <AppHeader />
   <main>
     <div v-if="!store.isPageLoading">
-      <AppMain />
+      <AppMain
+        @fetch-type="
+          fetchDecks(
+            `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&type=${$event}`
+          )
+        "
+      />
     </div>
     <DeckLoading v-else />
   </main>

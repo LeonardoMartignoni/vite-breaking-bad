@@ -18,7 +18,7 @@ export default {
           class="card_name text-uppercase fw-bold d-flex align-items-center justify-content-center"
           >{{ card.name }}</span
         >
-        <span class="card_archetype">{{ card.archetype }}</span>
+        <span class="card_archetype">{{ card.type }}</span>
       </div>
     </div>
   </div>

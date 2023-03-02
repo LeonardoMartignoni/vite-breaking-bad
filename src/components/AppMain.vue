@@ -14,11 +14,18 @@ export default {
       store,
     };
   },
+
+  methods: {
+    fetchType(type) {
+      this.$emit("fetch-type", type);
+      console.log(type);
+    },
+  },
 };
 </script>
 <template>
   <div class="container">
-    <FetchType />
+    <FetchType @fetch-type="fetchType($event)" />
     <div class="deck_cards p-4 mt-4">
       <div class="row row-cols-5">
         <DeckCards
