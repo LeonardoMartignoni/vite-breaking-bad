@@ -35,7 +35,7 @@ export default {
           // REMOVE THIS LINE IN BUILD (DEBUG)
           setTimeout(() => {
             store.isPageLoading = false;
-          }, 2000);
+          }, 300);
 
           // ADD THIS LINE IN BUILD
           // store.isPageLoading = false;
