@@ -5,13 +5,13 @@ export default {
   data() {
     return {
       deckType,
-      selectedType: "all",
     };
   },
 
   methods: {
     searchType() {
-      this.$emit("fetch-type", this.selectedType);
+      console.log(this.deckType.selectedType);
+      this.$emit("fetch-type", this.deckType.selectedType);
     },
   },
 };
@@ -21,7 +21,7 @@ export default {
   <select
     name="type_selector"
     @change="searchType"
-    v-model="selectedType"
+    v-model="deckType.selectedType"
   >
     <option value="all">All types</option>
     <option

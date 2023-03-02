@@ -1,6 +1,7 @@
 import { reactive } from "vue";
 
 export default reactive({
+  selectedType: "all",
   types: [
     {
       type: "Effect Monster",
