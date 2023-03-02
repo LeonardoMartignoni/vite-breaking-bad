@@ -18,15 +18,18 @@ export default {
   methods: {
     fetchType(type) {
       this.$emit("fetch-type", type);
-      console.log(type);
+      // console.log(type);
     },
   },
 };
 </script>
 <template>
   <div class="container">
-    <FetchType @fetch-type="fetchType($event)" />
-    <div class="deck_cards p-4 mt-4">
+    <FetchType
+      class="my-3"
+      @fetch-type="fetchType($event)"
+    />
+    <div class="deck_cards p-4">
       <div class="row row-cols-5">
         <DeckCards
           v-for="card in store.decks"

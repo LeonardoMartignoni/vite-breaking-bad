@@ -10,7 +10,7 @@ export default {
 
   methods: {
     searchType() {
-      console.log(this.deckType.selectedType);
+      // console.log(this.deckType.selectedType);
       this.$emit("fetch-type", this.deckType.selectedType);
     },
   },
@@ -24,6 +24,12 @@ export default {
     v-model="deckType.selectedType"
   >
     <option value="all">All types</option>
+    <option
+      value=""
+      disabled
+    >
+      ---------------
+    </option>
     <option
       v-for="deck in deckType.types"
       :value="deck.type"
